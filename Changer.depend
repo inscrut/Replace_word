@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1556629773 source:d:\projects\cb\changer\main.cpp
+	"windows.h"
+	<iostream>
+	<string>
+	<conio.h>
+	<stdio.h>
+

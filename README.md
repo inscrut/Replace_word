@@ -1,2 +1,2 @@
-# Replace_word
+# Replace word
 Replace words in string
