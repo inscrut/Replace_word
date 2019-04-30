@@ -4,15 +4,15 @@
 #include <conio.h>
 #include <stdio.h>
 
-#define SIZE_MAS 256 //Ограничение SIZE_MAS символов
+#define SIZE_MAS 256 //РћРіСЂР°РЅРёС‡РµРЅРёРµ SIZE_MAS СЃРёРјРІРѕР»РѕРІ
 
 using namespace std;
 
 char input_str[SIZE_MAS] = {'\0'};
-char word[SIZE_MAS] = {'\0'}; //Искомая лексемма
-char repl[SIZE_MAS] = {'\0'}; //Замена
+char word[SIZE_MAS] = {'\0'}; //РСЃРєРѕРјР°СЏ Р»РµРєСЃРµРјРјР°
+char repl[SIZE_MAS] = {'\0'}; //Р—Р°РјРµРЅР°
 
-char reslt[SIZE_MAS] = {'\0'}; //результат
+char reslt[SIZE_MAS] = {'\0'}; //СЂРµР·СѓР»СЊС‚Р°С‚
 
 int main()
 {
@@ -21,7 +21,7 @@ int main()
 
     cout << "Enter string: ";
 
-    gets(input_str); //Чтение строки
+    gets(input_str); //Р§С‚РµРЅРёРµ СЃС‚СЂРѕРєРё
 
     cout << "Entered: ";
     printf("%s", input_str);
@@ -39,29 +39,29 @@ int main()
     printf("%s", repl);
     cout << endl;
 
-    //проверка, есть ли вообще такое слово в строке?
+    //РїСЂРѕРІРµСЂРєР°, РµСЃС‚СЊ Р»Рё РІРѕРѕР±С‰Рµ С‚Р°РєРѕРµ СЃР»РѕРІРѕ РІ СЃС‚СЂРѕРєРµ?
     if(strstr(input_str, word) == NULL){
         cout << "Not found word!" << endl << endl;
         cout << "Output: ";
-        strncpy(reslt, input_str, SIZE_MAS); //SIZE_MAS - длина массива, чтобы не вылезти за пределы
+        strncpy(reslt, input_str, SIZE_MAS); //SIZE_MAS - РґР»РёРЅР° РјР°СЃСЃРёРІР°, С‡С‚РѕР±С‹ РЅРµ РІС‹Р»РµР·С‚Рё Р·Р° РїСЂРµРґРµР»С‹
         printf("%s", input_str);
-        getche(); //Пауза, Enter для выхода
+        getche(); //РџР°СѓР·Р°, Enter РґР»СЏ РІС‹С…РѕРґР°
         return 0;
     }
 
-    //разбиваем строку на лексеммы:
-    char *p; //указатель
+    //СЂР°Р·Р±РёРІР°РµРј СЃС‚СЂРѕРєСѓ РЅР° Р»РµРєСЃРµРјРјС‹:
+    char *p; //СѓРєР°Р·Р°С‚РµР»СЊ
     p = strtok(input_str, " ");
 
-    if(p == NULL){ //что-то пошло не так :(
+    if(p == NULL){ //С‡С‚Рѕ-С‚Рѕ РїРѕС€Р»Рѕ РЅРµ С‚Р°Рє :(
         //
         cout << "p is NULL :(";
-        getche(); //Пауза, Enter для выхода
+        getche(); //РџР°СѓР·Р°, Enter РґР»СЏ РІС‹С…РѕРґР°
         return 1;
     }
 
-    //смотрим первое слово
-    if (strcmp(p, word) == 0){ //совпадает?
+    //СЃРјРѕС‚СЂРёРј РїРµСЂРІРѕРµ СЃР»РѕРІРѕ
+    if (strcmp(p, word) == 0){ //СЃРѕРІРїР°РґР°РµС‚?
         strncat(reslt, repl, SIZE_MAS);
         strcat(reslt, " ");
     }
@@ -70,12 +70,12 @@ int main()
         strcat(reslt, " ");
     }
 
-    while(p){ //пока не null
+    while(p){ //РїРѕРєР° РЅРµ null
         p = strtok('\0', " ");
 
-        //смотрим слово
+        //СЃРјРѕС‚СЂРёРј СЃР»РѕРІРѕ
         if(p){
-            if (strcmp(p, word) == 0){ //совпадает?
+            if (strcmp(p, word) == 0){ //СЃРѕРІРїР°РґР°РµС‚?
                 strncat(reslt, repl, SIZE_MAS);
                 strcat(reslt, " ");
             }
@@ -90,7 +90,7 @@ int main()
     printf("%s", reslt);
     cout << endl;
 
-    getche(); //Пауза, Enter для выхода
+    getche(); //РџР°СѓР·Р°, Enter РґР»СЏ РІС‹С…РѕРґР°
 
     return 0;
 }
